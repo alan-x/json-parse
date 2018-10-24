@@ -89,10 +89,10 @@ describe('tokenize', () => {
         )
     })
     test(`{"age":22}`, () => {
-        expect(tokenize(`{"age":22}`)).toEqual(
-            [{"loc": {"end": [1, 1], "start": [1, 1]}, "raw": "{", "type": "TYPE_LEFT_BRACE", "value": "{"}, {"loc": {"end": [1, 6], "start": [1, 2]}, "raw": "\"age\"", "type": "TYPE_STRING", "value": "age"}, {"loc": {"end": [1, 7], "start": [1, 7]}, "raw": ":", "type": "TYPE_COLON", "value": ":"}, {"loc": {"end": [1, 9], "start": [1, 7]}, "raw": "22", "type": "TYPE_NUMBER", "value": 22}, {"loc": {"end": [1, 10], "start": [1, 10]}, "raw": "}", "type": "TYPE_RIGHT_BRACE", "value": "}"}]
-        )
     })
+    expect(tokenize(`{"age":22}`)).toEqual(
+        [{"loc": {"end": [1, 1], "start": [1, 1]}, "raw": "{", "type": "TYPE_LEFT_BRACE", "value": "{"}, {"loc": {"end": [1, 6], "start": [1, 2]}, "raw": "\"age\"", "type": "TYPE_STRING", "value": "age"}, {"loc": {"end": [1, 7], "start": [1, 7]}, "raw": ":", "type": "TYPE_COLON", "value": ":"}, {"loc": {"end": [1, 9], "start": [1, 7]}, "raw": "22", "type": "TYPE_NUMBER", "value": 22}, {"loc": {"end": [1, 10], "start": [1, 10]}, "raw": "}", "type": "TYPE_RIGHT_BRACE", "value": "}"}]
+    )
 
     test(`object`, () => {
         expect(tokenize(`

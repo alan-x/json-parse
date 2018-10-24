@@ -98,4 +98,12 @@ describe('compile', () => {
         )
     })
 
+    test(`{"name":"lyxxxx","age":24,"isCool":true,"books":null,"articles":[{"name":"1"}]}`, () => {
+        let ast = tokenize(`{"name":"lyxxxx","age":24,"isCool":true,"books":null,"articles":[{"name":"1"}]}`)
+        ast = parse(ast)
+        expect(compile(ast)).toEqual(
+            {"age": 24, "articles": [{"name": "1"}], "books": null, "isCool": true, "name": "lyxxxx"}
+        )
+    })
+
 })
